@@ -1,0 +1,17 @@
+{
+  "_about": "外部论文 B2BDet (arXiv:2401.14661, 2024) 的 EPSA-MRS 申报状态。只填论文显式声明的字段，未声明留空/null；由 comb2c E6 外部效度试点人工判分填写。",
+  "_paper": "B2BDet: From Blurry to Brilliant Detection (arXiv:2401.14661)",
+  "engine": {"name": null, "version": null, "commit_or_release": null},
+  "framework_under_test": {"name": "YOLOv5", "version": null},
+  "max_det": {"eval_value": null, "unit": null, "export_value": null},
+  "protocol": {"iou_thrs": [0.5], "matcher": null},
+  "ap_integration": {"interp": null, "recall_beyond_max": null},
+  "aggregation": {"mode": null, "gt_per_class": null},
+  "area_tiers": {"definition": null, "reported_layer": null},
+  "predictions": {"conf_threshold": null, "imgsz": "3072-1408 (multi-scale)", "nms_iou": null},
+  "tie_break": {"rule": null},
+  "join": {},
+  "uncertainty": {},
+  "seed_dispersion": {},
+  "claims": []
+}

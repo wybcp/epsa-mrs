@@ -1,0 +1,42 @@
+{
+  "AITOD_B1_s42": {
+    "dataset": "aitod",
+    "n_img_new": 2804,
+    "n_img_old": 2763,
+    "n_gt_new": 70424,
+    "n_gt_old": 69453,
+    "ap_new": 0.1410967705483374,
+    "ap_old": 0.14389846899852576,
+    "inflation": 0.00280169845018835
+  },
+  "AITOD_E1_off_s42": {
+    "dataset": "aitod",
+    "n_img_new": 2804,
+    "n_img_old": 2763,
+    "n_gt_new": 70424,
+    "n_gt_old": 69453,
+    "ap_new": 0.14691742306416794,
+    "ap_old": 0.15032795973048485,
+    "inflation": 0.00341053666631691
+  },
+  "B1_yolo26n_s42": {
+    "dataset": "visdrone",
+    "n_img_new": 1610,
+    "n_img_old": 1610,
+    "n_gt_new": 75102,
+    "n_gt_old": 75102,
+    "ap_new": 0.14195655399637958,
+    "ap_old": 0.14195655399637958,
+    "inflation": 0.0
+  },
+  "E1_off_s42": {
+    "dataset": "visdrone",
+    "n_img_new": 1610,
+    "n_img_old": 1610,
+    "n_gt_new": 75102,
+    "n_gt_old": 75102,
+    "ap_new": 0.1488495648733956,
+    "ap_old": 0.1488495648733956,
+    "inflation": 0.0
+  }
+}

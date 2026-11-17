@@ -1,0 +1,17 @@
+{
+  "_about": "外部论文 SW-YOLO (arXiv:2512.07379, 2025) 的 EPSA-MRS 申报状态。只填论文显式声明的字段，未声明留空/null。",
+  "_paper": "Enhancing Small Object Detection with YOLO (SW-YOLO, VisDrone2019, SAHI slicing)",
+  "engine": {"name": null, "version": null, "commit_or_release": null},
+  "framework_under_test": {"name": "YOLOv5L / CZDet / SW-YOLO", "version": null},
+  "max_det": {"eval_value": null, "unit": null, "export_value": null},
+  "protocol": {"iou_thrs": [0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95], "matcher": null},
+  "ap_integration": {"interp": null, "recall_beyond_max": null},
+  "aggregation": {"mode": null, "gt_per_class": null},
+  "area_tiers": {"definition": null, "reported_layer": null},
+  "predictions": {"conf_threshold": null, "imgsz": null, "nms_iou": "NMS / Local Soft-NMS (value not stated)"},
+  "tie_break": {"rule": null},
+  "join": {},
+  "uncertainty": {},
+  "seed_dispersion": {},
+  "claims": []
+}

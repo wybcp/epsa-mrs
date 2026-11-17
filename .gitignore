@@ -1,0 +1,15 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+build/
+dist/
+.ssh/
+*.ppk
+id_ed25519*
+known_hosts*
+*.zip
+*.pdf
+.DS_Store

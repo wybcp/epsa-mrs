@@ -1,0 +1,140 @@
+{
+  "mrs_version": "v1",
+  "items": [
+    {
+      "id": "M1",
+      "title": "评测实现与版本",
+      "pass": true,
+      "level": "PASS",
+      "msg": "engine{name,version,commit_or_release} 三项齐（同一批框换实现可差 2.7e-3，见 §M1）"
+    },
+    {
+      "id": "M2",
+      "title": "maxDet 数值 + 语义单位 + 导出侧上限",
+      "pass": true,
+      "level": "PASS",
+      "msg": "max_det{eval_value,unit,export_value} 三项齐；只给数值等于没给（两种单位差可达 0.02+）"
+    },
+    {
+      "id": "M2b",
+      "title": "maxDet 档是否落在饱和点",
+      "pass": true,
+      "level": "PASS",
+      "msg": "eval_value=100 ≥ export_value=300 ⇒ 该档构造上等于不截断，其'零效应'是探针退化不是发现（§M2，本项目 P0-6 的成因）"
+    },
+    {
+      "id": "M2c",
+      "title": "导出侧上限是否 bind",
+      "pass": true,
+      "level": "PASS",
+      "msg": "share=0.305 ｜ 跨 cap 敏感性 0.000642（§M2c）"
+    },
+    {
+      "id": "M3",
+      "title": "IoU 阈值集合（列全）+ 匹配器语义",
+      "pass": true,
+      "level": "PASS",
+      "msg": "protocol.iou_thrs 必须是展开的列表（写 '0.5:0.95' 无法判定是 10 点还是 101 点扫描），protocol.matcher ∈ 已知语义集合"
+    },
+    {
+      "id": "M4",
+      "title": "AP 积分末点/哨兵约定",
+      "pass": true,
+      "level": "PASS",
+      "msg": "ap_integration{interp, recall_beyond_max}；召回超过曲线最大召回的点**赋 0 还是取末值**可使小目标 AP 差 0.05 量级（§M4）"
+    },
+    {
+      "id": "M5",
+      "title": "类别聚合方式 + 每类 GT 数",
+      "pass": true,
+      "level": "PASS",
+      "msg": "aggregation{mode, gt_per_class}；macro 与 gt_weighted 对同一模型可差 0.07（§M5），不报每类 GT 数则无法判断 macro 被几个稀有类主导"
+    },
+    {
+      "id": "M5b",
+      "title": "稀有类对 macro 的支配度",
+      "pass": true,
+      "level": "PASS",
+      "msg": "0/8 个类 GT<20 ⇒ macro AP 的分母里这些类各占 1/N 但抽样极不稳定"
+    },
+    {
+      "id": "M6",
+      "title": "尺度分层的**定义**与所报层",
+      "pass": true,
+      "level": "PASS",
+      "msg": "area_tiers{definition,thresholds,reported_layer}；'small' 一词在不同实现里不是同一个集合（本项目 D4 属'同名不同测'，同层内两种定义 |Δ| 均值 0.0398/0.0093）"
+    },
+    {
+      "id": "M7",
+      "title": "置信度阈值 + 检测框产生路径",
+      "pass": true,
+      "level": "PASS",
+      "msg": "predictions{conf_threshold, source, source_detail}；val 与 predict 两条路径自算 AP 可差 0.012 量级（§M7）"
+    },
+    {
+      "id": "M8",
+      "title": "同分（并列置信度）破序规则",
+      "pass": true,
+      "level": "PASS",
+      "msg": "tie_break.rule ∈ 具名规则；实测每条 (类,阈值) 曲线 35.31% 的检测与后继同分⇒ 不写明无法逐位复现。注意 **\"unspecified\" 不算具名规则**（把\"没写\"当成一个合法取值＝这条检查永远不会红，等于没有检查）"
+    },
+    {
+      "id": "M9",
+      "title": "图像联接完整性（GT 图数 == join 图数）",
+      "pass": true,
+      "level": "PASS",
+      "msg": "join{n_gt_images,n_joined_images,zero_det_counted}"
+    },
+    {
+      "id": "M9b",
+      "title": "是否存在有 GT 却掉出分母的图",
+      "pass": true,
+      "level": "PASS",
+      "msg": "n_gt_images=2804 而 n_joined_images=2804 ⇒ 0 张图的 GT 不进召回分母，AP 系统性虚高（本项目实测 +0.0028/+0.0034，AI-TOD 两个模型；VisDrone 侧 0）；两侧同源的对照检查看不见它（§M9）"
+    },
+    {
+      "id": "M9c",
+      "title": "真·零检出图是否计入",
+      "pass": true,
+      "level": "PASS",
+      "msg": "join.zero_det_counted 必须为 true：被省略的零检出图=漏检不进分母"
+    },
+    {
+      "id": "M10",
+      "title": "不确定度的抽样单位与簇定义",
+      "pass": true,
+      "level": "PASS",
+      "msg": "uncertainty{resample_unit,cluster_definition,B}；换视频段做簇自助可使 SE 放大 1.08–1.97 倍并让'显著'变不显著（§M10）"
+    },
+    {
+      "id": "M10c",
+      "title": "簇自助与逐图自助是否两套独立预算",
+      "pass": false,
+      "level": "WARN",
+      "msg": "n_img/n_clusters = 1.28 ⇒ 平均每簇仅 1.28 图，簇重抽样与逐图重抽样高度同源，不得并称『两套独立预算』，只能写成对抽样单位的敏感性检查"
+    },
+    {
+      "id": "M13",
+      "title": "seed 数与 seed 间分散度",
+      "pass": true,
+      "level": "PASS",
+      "msg": "n_seeds=3（组：AITOD_B1、AITOD_E1_off）｜合规臂合并 sd 0.001715（95% 区间 [0.001503, 0.001997]，48 格）｜只有单 seed 的组：无。n=3 ⇒ 单格 sd 只能定到约 12 倍内，结论必须用合并值或逐臂值（§M13）"
+    },
+    {
+      "id": "M11",
+      "title": "每条数值声明标注了估计量类别",
+      "pass": true,
+      "level": "PASS",
+      "msg": "claims[].kind ∈ {estimator_switch, measurand_switch, stress_test, fault_injection}；混着比会造出'高危维度'假象（§M11）"
+    },
+    {
+      "id": "M12:maxDet 效应 = 方法增益的 3.7 倍",
+      "title": "比值型主张须给区间且分母显著",
+      "pass": false,
+      "level": "WARN",
+      "msg": "比值 = 已舍入统计量相除，且分母区间覆盖 0 时符号不定 ⇒ 该'倍数'无可用区间（本项目据此废止一条 3.7× 头条，§M12）"
+    }
+  ],
+  "n_fail": 0,
+  "n_warn": 2
+}
