@@ -20,7 +20,7 @@
       "title": "maxDet 档是否落在饱和点",
       "pass": true,
       "level": "PASS",
-      "msg": "eval_value=100 ≥ export_value=300 ⇒ 该档构造上等于不截断，其'零效应'是探针退化不是发现（§M2，本项目 P0-6 的成因）"
+      "msg": "eval_value=100 ≥ export_value=300 ⇒ 该档构造上等于不截断，其'零效应'是探针退化不是发现（§M2）"
     },
     {
       "id": "M2c",

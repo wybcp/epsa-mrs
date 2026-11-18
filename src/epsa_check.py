@@ -105,7 +105,7 @@ def check_all(dec, rep=None):
         rep.add("M2b", "maxDet 档是否落在饱和点",
                 not sat,
                 "eval_value=%s ≥ export_value=%s ⇒ 该档构造上等于不截断，"
-                "其'零效应'是探针退化不是发现（§M2，本项目 P0-6 的成因）" % (ev, xv),
+                "其'零效应'是探针退化不是发现（§M2）" % (ev, xv),
                 level="WARN")
 
     # M2c 导出侧上限是否 bind。动机是自家 D5-c 实测：**协议一字不改**

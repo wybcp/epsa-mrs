@@ -157,7 +157,7 @@
       "denominator": 0.0058,
       "ci": null,
       "denominator_excludes_zero": false,
-      "_note": "负对照：本条已被本项目自己废止（P0-9），保留只为让 M12 点亮。读声明件的人请勿把它当成仍在主张的结论"
+      "_note": "Negative control: an earlier ratio claim was withdrawn by the authors; it is retained only so that M12 lights up. Readers should not treat it as a live conclusion"
     }
   ]
 }
