@@ -67,4 +67,4 @@ Apache License 2.0. See `LICENSE.txt` and `Licence.txt`.
 
 ## Contact
 
-[To be completed by the corresponding author before submission.]
+Yunbo Wang (corresponding author) — wangyunbo@cqsdzy.com. For software support and bug reports, use the repository issue tracker: https://github.com/wybcp/epsa-mrs/issues.
