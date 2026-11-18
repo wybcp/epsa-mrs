@@ -63,7 +63,7 @@ Example declarations and metadata sidecars are archived at Zenodo: `doi:10.5281/
 
 ## License
 
-CC BY 4.0. See `LICENSE.txt` and `Licence.txt`.
+Apache License 2.0. See `LICENSE.txt` and `Licence.txt`.
 
 ## Contact
 
